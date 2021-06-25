@@ -11,8 +11,9 @@ https://www.kaggle.com/mryanm/luflow-network-intrusion-detection-data-set
 The following dataset contains many entries.
 Each entry describe possible caractertics of potiontial cyber threat. 
 Each entry has also a label haiving one of the possible following values:
-1.Malicious
-2.Begnin
-3.outlier
+1. Malicious
+1. Begnin
+1. Outlier
+ 
 
 Our target here is to learn a model capable to predict labels of  entries similar to those available in these files.
