@@ -4,8 +4,9 @@ https://towardsdatascience.com/a-tutorial-using-spark-for-big-data-an-example-to
 
 
 
-We analyze 19GB from data (from link below) to be able to detect intrusion
+We analyze 19GB from data (taken from link below) 
 https://www.kaggle.com/mryanm/luflow-network-intrusion-detection-data-set
+These data describes potential situation of malicious cyber intrusion
 
 
 The following dataset contains many entries.
