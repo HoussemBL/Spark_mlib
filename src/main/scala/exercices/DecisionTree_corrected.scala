@@ -65,7 +65,7 @@ object DecisionTreeCorrected extends Serializable {
 
     
     
-    
+    /******************************classification***************************/
     
     //val model = rf.fit(trainingData)
     //val predictions = model.transform(testData)
