@@ -1,10 +1,10 @@
 # Spark_mlib
-Project is based on the example given in:
-[GitHub](https://towardsdatascience.com/a-tutorial-using-spark-for-big-data-an-example-to-predict-customer-churn-9078ac9a1e85)
+Project is based on the example given in:\
+https://towardsdatascience.com/a-tutorial-using-spark-for-big-data-an-example-to-predict-customer-churn-9078ac9a1e85
 
 
 
-We analyze 19GB from data (taken from link below) 
+We analyze 19GB from data (taken from link below)\
 https://www.kaggle.com/mryanm/luflow-network-intrusion-detection-data-set
 These data describes potential situation of malicious cyber intrusion
 
