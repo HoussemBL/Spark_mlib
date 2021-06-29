@@ -63,10 +63,13 @@ object DecisionTreeCorrected extends Serializable {
      // .setMaxBins(3000)
       //.setMaxDepth(10)
 
-    val model = rf.fit(trainingData)
-
-    // Make predictions.
-    val predictions = model.transform(testData)
+    
+    
+    
+    
+    //val model = rf.fit(trainingData)
+    //val predictions = model.transform(testData)
+    val predictions=MLUtils.classify(rf,trainingData)
 
     //  val result= evaluateModel(rf, trainingData, testData)
     val result = MLUtils.evaluateModel(predictions)
