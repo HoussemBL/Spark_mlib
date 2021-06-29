@@ -106,6 +106,7 @@ object MLUtils {
 	    // obtain evaluator.
 	    val evaluator = new MulticlassClassificationEvaluator()
 	      .setLabelCol("label_indexed")
+	      .setPredictionCol("prediction")
 	      .setMetricName("accuracy")
 
 	    // compute the classification error on test data.
