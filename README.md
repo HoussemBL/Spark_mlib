@@ -1,6 +1,6 @@
 # Spark_mlib
 Project is based on the example given in:
-https://towardsdatascience.com/a-tutorial-using-spark-for-big-data-an-example-to-predict-customer-churn-9078ac9a1e85
+[GitHub](https://towardsdatascience.com/a-tutorial-using-spark-for-big-data-an-example-to-predict-customer-churn-9078ac9a1e85)
 
 
 
