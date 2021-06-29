@@ -98,6 +98,19 @@ object MLUtils {
 	
 	
 	
+	//fit the given machine learning model using the given training dataset
+	def classify(rf: Estimator,trainingData:DataFrame): DataFrame =
+	  {
+	  
+	  val model=rf.fit(trainingData)
+	  
+	   // Make predictions.
+          val predictions = model.transform(testData)
+	  
+	  predictions
+	  }
+	
+	
 	  
 	    //evaluate the given model
 	  def evaluateModel(predictions: DataFrame): String = {
