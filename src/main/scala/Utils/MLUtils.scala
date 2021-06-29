@@ -71,6 +71,33 @@ object MLUtils {
 	    }
 
 
+	
+	//index only label
+	  def indexLabel(labelCol: String, df_clean: DataFrame): DataFrame =
+	    {
+	      var indexers = new ListBuffer[StringIndexer]()
+	     
+	        val index = new StringIndexer()
+	          .setInputCol(labelCol)
+	          .setOutputCol(labelCol + "_indexed")
+	        indexers += index
+	      
+	      val pipeline = new Pipeline()
+	        .setStages(indexers.toArray)
+	      val df_indexed = pipeline.fit(df_clean).transform(df_clean)
+	     
+
+	      //vector index
+	      val assembler = new VectorAssembler()
+	        .setInputCols(dimCols_index.filterNot(p => p.contains(labelCol)).toArray)
+	        .setOutputCol("feature_vector")
+	      val df_inuse = assembler.transform(df_indexed2).select("feature_vector", labelCol, labelCol+"_indexed")
+
+	      df_inuse
+	    }
+	
+	
+	
 	  
 	    //evaluate the given model
 	  def evaluateModel(predictions: DataFrame): String = {
