@@ -28,7 +28,7 @@ object DecisionTree extends Serializable {
     val spark = Utils.getSpark()
 
     import spark.sqlContext._
-    val df = spark.read.option("header", true).csv(csv_docs).limit(10000)
+    val df = spark.read.option("header", true).csv(csv_docs).limit(1000)
     //df.printSchema()
 
 /******************************cleaning***************************/
@@ -43,9 +43,10 @@ object DecisionTree extends Serializable {
     //sorting of columns --put label at the end
     var dimCols = new ListBuffer[String]()
     dimCols ++= (df_notEmpty.columns.filterNot(col => col.equals("label")).toList).view(2, 5)
-    var sortedCols = dimCols
+   /* var sortedCols = ListBuffer[String]()
+    sortedCols.++=(dimCols)*/
+    var sortedCols =dimCols
     sortedCols += "label"
-
     val df_clean = df_notEmpty.select(sortedCols.map(col): _*)
 
 /******************************indexing***************************/

@@ -31,7 +31,7 @@ import org.apache.spark.ml.classification.Classifier
 
 
 //contains all functions necessary to implement a learning model
-object MLUtils {
+object MLUtils extends Serializable{
 	  //return a dataframe with percentage of empty columns
 	  def checkEmptyResults(df_in: DataFrame): DataFrame = {
 	    var df_out = df_in.select(countCols(df_in.columns): _*)
@@ -73,7 +73,7 @@ object MLUtils {
 
 	
 	//index only label
-	  def indexLabel(labelCol: String, df_clean: DataFrame): DataFrame =
+	  def indexLabel(labelCol: String, dimCols: ListBuffer[String],df_clean: DataFrame): DataFrame =
 	    {
 	      var indexers = new ListBuffer[StringIndexer]()
 	     
@@ -89,26 +89,26 @@ object MLUtils {
 
 	      //vector index
 	      val assembler = new VectorAssembler()
-	        .setInputCols(dimCols_index.filterNot(p => p.contains(labelCol)).toArray)
+	        .setInputCols(dimCols.toArray)
 	        .setOutputCol("feature_vector")
-	      val df_inuse = assembler.transform(df_indexed2).select("feature_vector", labelCol, labelCol+"_indexed")
+	      val df_inuse = assembler.transform(df_indexed).select("feature_vector", labelCol, labelCol+"_indexed")
 
 	      df_inuse
 	    }
 	
 	
 	
-	//fit the given machine learning model using the given training dataset
-	def classify(rf: Estimator,trainingData:DataFrame): DataFrame =
-	  {
-	  
-	  val model=rf.fit(trainingData)
-	  
-	   // Make predictions.
-          val predictions = model.transform(testData)
-	  
-	  predictions
-	  }
+//	//fit the given machine learning model using the given training dataset
+//	def classify(rf: Estimator,trainingData:DataFrame): DataFrame =
+//	  {
+//	  
+//	  val model=rf.fit(trainingData)
+//	  
+//	   // Make predictions.
+//          val predictions = model.transform(testData)
+//	  
+//	  predictions
+//	  }
 	
 	
 	  
@@ -127,4 +127,19 @@ object MLUtils {
 
 	    return s"Test Error = ${1 - accuracy}"
 	  }
+	  
+	  
+	  
+	  //convert all colums present in "dimCOls" to doubleType
+	 def convertString_Double(df_clean:DataFrame,dimCols:ListBuffer[String]):DataFrame=
+	 {
+	   
+	   var df_converted=df_clean
+	   var col_st=""
+//	   for (  col_st <- dimCols)
+//	   {
+	   dimCols.foreach(col_st=>	   {  df_converted=df_converted.withColumn(col_st,col(col_st).cast("double"))
+	   })
+	   df_converted
+	 }
 }

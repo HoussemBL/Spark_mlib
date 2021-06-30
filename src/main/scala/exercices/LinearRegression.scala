@@ -51,7 +51,9 @@ object LinearRegression extends Serializable {
     //sorting of columns --put label at the end
     var dimCols = new ListBuffer[String]()
     dimCols ++= (df_notEmpty.columns.filterNot(col => col.equals("label")).toList).view(2, 5)
-    var sortedCols = dimCols
+     /* var sortedCols = ListBuffer[String]()
+    sortedCols.++=(dimCols)*/
+    var sortedCols =dimCols
     sortedCols += "label"
 
     val df_clean = df_notEmpty.select(sortedCols.map(col): _*)
