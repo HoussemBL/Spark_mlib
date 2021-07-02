@@ -141,16 +141,24 @@
     <version>3.0.0</version>
     <scope>test</scope>
 </dependency>
-
-<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-mllib -->
 <dependency>
     <groupId>org.apache.spark</groupId>
     <artifactId>spark-mllib_2.12</artifactId>
     <version>3.0.0</version>
     <scope>provided</scope>
 </dependency>
-
-
+	  <!-- delta lake dependency -->
+<dependency>
+    <groupId>io.delta</groupId>
+    <artifactId>delta-core_2.12</artifactId>
+    <version>0.7.0</version>
+</dependency>
+	  
+	  
+	  
+	  
+	  
+	 	  
 <dependency>
     <groupId>org.json4s</groupId>
     <artifactId>json4s-native_2.11</artifactId>
