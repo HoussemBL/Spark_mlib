@@ -1,6 +1,4 @@
-package Utils
-
-
+package com.util
 
 import org.apache.spark._
 import org.apache.spark.streaming._
