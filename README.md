@@ -18,3 +18,8 @@ Each entry has also a label haiving one of the possible following values:
  
 
 Our target here is to learn a model capable to predict labels of  entries similar to those available in these files.
+
+
+
+Another solution for this problem is available as a code in Kaggle plateform (see link below):
+https://www.kaggle.com/houssembenlahmar/prediction-of-intrusion
