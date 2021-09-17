@@ -21,5 +21,5 @@ Our target here is to learn a model capable to predict labels of  entries simila
 
 
 
-Another solution for this problem is available as a code in Kaggle plateform (see link below)\
+Another solution (implemnted in python) for this problem is available in Kaggle plateform (see link below)\
 https://www.kaggle.com/houssembenlahmar/prediction-of-intrusion
